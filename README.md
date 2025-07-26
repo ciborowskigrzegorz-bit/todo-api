@@ -32,7 +32,7 @@ Prosty i szybki backend REST API dla aplikacji zarządzania zadaniami, zbudowany
 ### 1. Klonowanie repozytorium
 
 ```bash
-git clone https://github.com/TwojaNazwaUzytkownika/todo-api.git
+git clone https://github.com/ciborowskigrzegorz-bit/todo-api.git
 cd todo-api
 ```
 
