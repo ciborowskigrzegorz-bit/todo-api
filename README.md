@@ -2,9 +2,8 @@
 
 Prosty i szybki backend REST API dla aplikacji zarządzania zadaniami, zbudowany z użyciem **FastAPI**, **PostgreSQL**, **JWT**, **Docker** i **SQLAlchemy**.
 
-![Swagger UI Screenshot](docs/swagger.png)
-
----
+![Swagger UI Screenshot]([
+](https://imgur.com/a/AmC8UoY)---
 
 ## 🚀 Funkcje
 
