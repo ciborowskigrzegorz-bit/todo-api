@@ -95,4 +95,4 @@ Projekt dostępny na licencji **MIT**. Używaj i rozwijaj!
 
 Grzegorz Ciborowski  
 📧 grzegorz@example.com  
-🔗 [github.com/GrzegorzCiborowski](https://github.com/GrzegorzCiborowski)# To-Do API
+🔗 [github.com/ciborowskigrzegorz-bit](https://github.com/ciborowskigrzegorz-bit/todo-api)# To-Do API
