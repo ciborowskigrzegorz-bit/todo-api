@@ -2,7 +2,7 @@
 
 Prosty i szybki backend REST API dla aplikacji zarządzania zadaniami, zbudowany z użyciem **FastAPI**, **PostgreSQL**, **JWT**, **Docker** i **SQLAlchemy**.
 
-![Swagger UI Screenshot](https://zapodaj.net/plik-7n3riNuzHi)
+![Swagger UI Screenshot](docs/screenshot.png)
 
 ## 🚀 Funkcje
 
@@ -70,7 +70,7 @@ Uwierzytelnianie odbywa się za pomocą tokena JWT.
 
 ## 📸 Zrzut ekranu
 
-> ![Swagger UI Screenshot](https://zapodaj.net/plik-7n3riNuzHi)
+> ![Swagger UI Screenshot](docs/screenshot.png)
 
 ---
 
