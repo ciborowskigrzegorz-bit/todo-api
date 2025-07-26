@@ -70,7 +70,7 @@ Uwierzytelnianie odbywa się za pomocą tokena JWT.
 
 ## 📸 Zrzut ekranu
 
-> zrzut Swagger UI `docs/swagger.png`
+> zrzut Swagger UI 'https://imgur.com/a/AmC8UoY`
 
 ---
 
