@@ -72,7 +72,7 @@ Uwierzytelnianie odbywa się za pomocą tokena JWT.
 
 ## 📸 Zrzut ekranu
 
-> Umieść zrzut Swagger UI w `docs/swagger.png` i zostanie on wyświetlony u góry repozytorium.
+> zrzut Swagger UI `docs/swagger.png`
 
 ---
 
@@ -94,5 +94,5 @@ Projekt dostępny na licencji **MIT**. Używaj i rozwijaj!
 ## 🤝 Autor
 
 Grzegorz Ciborowski  
-📧 grzegorz@example.com  
+📧 ciborowskigrzegorz@gmail.com  
 🔗 [github.com/ciborowskigrzegorz-bit](https://github.com/ciborowskigrzegorz-bit/todo-api)# To-Do API
