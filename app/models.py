@@ -30,3 +30,8 @@ class Todo(Base):
     due_date = Column(String, nullable=True)
     tags = Column(String, nullable=True)  # comma-separated simple tags
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class YourModel(BaseModel):
+    # your fields here
+    
+    model_config = ConfigDict(from_attributes=True)

@@ -28,12 +28,11 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 
 @router.post('/', response_model=schemas.TodoOut)
 def create_todo(todo: schemas.TodoCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
-    db_todo = models.Todo(**todo.dict(), owner_id=current_user.id)
+    db_todo = models.Todo(**todo.model_dump(), owner_id=current_user.id)
     db.add(db_todo)
     db.commit()
     db.refresh(db_todo)
     return db_todo
-
 
 @router.get('/', response_model=List[schemas.TodoOut])
 def list_todos(page: int = 1, per_page: int = 10, tag: Optional[str] = None, status: Optional[str] = None, sort: Optional[str] = None, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
@@ -61,7 +60,7 @@ def update_todo(todo_id: int, payload: schemas.TodoCreate, db: Session = Depends
     todo = db.query(models.Todo).filter(models.Todo.id == todo_id, models.Todo.owner_id == current_user.id).first()
     if not todo:
         raise HTTPException(status_code=404, detail='Not found')
-    for k, v in payload.dict().items():
+    for k, v in payload.model_dump().items():
         setattr(todo, k, v)
     db.commit()
     db.refresh(todo)
