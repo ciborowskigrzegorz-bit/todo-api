@@ -1,10 +1,10 @@
 import pytest
-from httpx import AsyncClient
+from httpx import AsyncClient, ASGITransport
 from app.main import app
 
 @pytest.mark.asyncio
 async def test_todo_crud():
-    async with AsyncClient(app=app, base_url='http://test') as ac:
+    async with AsyncClient(transport=ASGITransport(app=app), base_url='http://test') as ac:
         await ac.post('/auth/register', json={'username':'todo','email':'a@a.com','password':'pwd'})
         r = await ac.post('/auth/login', data={'username':'todo','password':'pwd'})
         token = r.json()['access_token']

@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, T
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from .database import Base
+from pydantic import BaseModel, ConfigDict
 
 
 class User(Base):

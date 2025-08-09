@@ -2,5 +2,12 @@ fastapi
 uvicorn
 sqlalchemy
 psycopg2-binary
-python-jose
+uvicorn[standard]
+pytest
+pytest-asyncio
+httpx
+python-multipart
+python-jose[cryptography]
 passlib[bcrypt]
+pydantic[email]
+PyJWT
