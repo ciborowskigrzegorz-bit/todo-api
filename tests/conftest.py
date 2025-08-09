@@ -8,8 +8,14 @@ from sqlalchemy.orm import sessionmaker
 from app.database import Base, get_db
 from app.main import app
 
-# Use in-memory SQLite for testing (fresh for each test)
-SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
+# Use separate test database for CI
+import os
+if os.getenv("CI"):
+    # In CI, use a fresh database file for each run
+    SQLALCHEMY_DATABASE_URL = "sqlite:///./test_ci.db"
+else:
+    # Locally, use in-memory database
+    SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
