@@ -1,27 +1,45 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
+from typing import Optional, List
+
 
 class UserCreate(BaseModel):
-    email: str
+    username: str
+    email: EmailStr
     password: str
+
 
 class UserOut(BaseModel):
     id: int
-    email: str
+    username: str
+    email: EmailStr
+    role: str
+
     class Config:
         orm_mode = True
 
-class ToDoBase(BaseModel):
-    title: str
-    description: str
 
-class ToDoCreate(ToDoBase):
+class Token(BaseModel):
+    access_token: str
+    token_type: str = 'bearer'
+
+
+class TodoBase(BaseModel):
+    title: str
+    description: Optional[str] = None
+    due_date: Optional[str] = None
+    tags: Optional[str] = None
+    priority: Optional[int] = 0
+    status: Optional[str] = 'todo'
+
+
+class TodoCreate(TodoBase):
     pass
 
-class ToDoUpdate(ToDoBase):
-    completed: bool
 
-class ToDoOut(ToDoBase):
+class TodoOut(TodoBase):
     id: int
-    completed: bool
+    owner_id: int
+    done: bool
+
     class Config:
         orm_mode = True

@@ -1,19 +1,31 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text
 from sqlalchemy.orm import relationship
-from app.database import Base
+from sqlalchemy.sql import func
+from .database import Base
+
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = 'users'
     id = Column(Integer, primary_key=True, index=True)
-    email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
-    todos = relationship("ToDo", back_populates="owner")
+    username = Column(String, unique=True, index=True, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True)
+    role = Column(String, default='user')
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    todos = relationship('Todo', back_populates='owner', cascade='all, delete-orphan')
 
-class ToDo(Base):
-    __tablename__ = "todos"
+
+class Todo(Base):
+    __tablename__ = 'todos'
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String)
-    description = Column(String)
-    completed = Column(Boolean, default=False)
-    owner_id = Column(Integer, ForeignKey("users.id"))
-    owner = relationship("User", back_populates="todos")
+    title = Column(String, index=True)
+    description = Column(Text, nullable=True)
+    owner_id = Column(Integer, ForeignKey('users.id'))
+    owner = relationship('User', back_populates='todos')
+    done = Column(Boolean, default=False)
+    status = Column(String, default='todo')  # todo, in-progress, done
+    priority = Column(Integer, default=0)
+    due_date = Column(String, nullable=True)
+    tags = Column(String, nullable=True)  # comma-separated simple tags
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
